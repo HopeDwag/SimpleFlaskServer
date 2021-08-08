@@ -7,3 +7,4 @@ Future work
 - Double check the Repo and conform to a Python standard coding practice
 - Finish Unit Tests
 - Complete Integration Test/Tests
+- Look into the correct usage of modules
