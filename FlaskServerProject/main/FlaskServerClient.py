@@ -15,14 +15,12 @@ class FlaskServerClient:
 
     def shutdown(self):
         path = "%s/shutdown" % self.endpoint
-        print(type(path))
         return requests.get(path, timeout=30, verify=True).json()
 
     def upload_filename(self):
         path = "%s/upload" % self.endpoint
         return requests.get(path, timeout=30, verify=True).json()
 
-    # TODO:check if this is right
     def download_filename(self, filename):
         path = "%s/uploads/%s" % self.endpoint, filename
         return requests.get(path, timeout=30, verify=True).json()

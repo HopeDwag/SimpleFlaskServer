@@ -25,7 +25,7 @@ def csv_to_json(csv_file_path):
 def shutdown_server():
     func = request.environ.get('werkzeug.server.shutdown')
     if func is None:
-        raise RuntimeError('Not running with the Werkzeug Server')
+        raise RuntimeError('The Server is not running so I cant shut it down :)')
     func()
 
 

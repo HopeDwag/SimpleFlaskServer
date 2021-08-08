@@ -1,12 +1,12 @@
 import os
 from time import sleep
 
-from flask import Flask, flash, request, redirect, send_from_directory, jsonify
+from flask import Flask, request, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
 
 from SimpleFlaskServer.FlaskServerProject.main import FlaskServerHelper
 from SimpleFlaskServer.FlaskServerProject.main.FlaskServerHelper import shutdown_server, allowed_file
-from constants import UPLOAD_FOLDER, VERSION, HEALTH_DELAY
+from SimpleFlaskServer.FlaskServerProject.main.constants import UPLOAD_FOLDER, VERSION, HEALTH_DELAY
 
 # Initial Server Config
 app = Flask(__name__)
@@ -29,13 +29,10 @@ def home():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     print('saving uploaded file..')
-    # check if the post request has the file part
     if 'file' not in request.files:
-        flash('No file part')
-        return redirect(request.url)
+        return jsonify("Please give me a file")
     file = request.files['file']
     print('filename: {}'.format(file.filename))
-
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
