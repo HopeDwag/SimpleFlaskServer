@@ -4,7 +4,7 @@ import unittest
 from SimpleFlaskServer.FlaskServerProject.main import FlaskServer
 from SimpleFlaskServer.FlaskServerProject.main.FlaskServerClient import FlaskServerClient
 
-
+# NOTE: This integration test is under development and is currently only a collection of snippets
 class FlaskServerIntegrationTest(unittest.TestCase):
 
     def test_flask_server_integration(self):
