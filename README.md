@@ -8,3 +8,5 @@ Future work
 - Finish Unit Tests
 - Complete Integration Test/Tests
 - Look into the correct usage of modules
+- Implement Security Keys/Secrets
+- Look into patching and correct unit testing
