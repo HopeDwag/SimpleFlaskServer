@@ -35,9 +35,10 @@ def upload_file():
     print('filename: {}'.format(file.filename))
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        path_and_filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(path_and_filename)
         print('saved uploaded file.')
-        return jsonify(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        return jsonify(path_and_filename)
 
 
 @app.route("/healthcheck")
